@@ -12,14 +12,14 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Categoria implements Serializable  {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	private String nome;
 	private String descricao;
-	
+
 	@OneToMany(mappedBy = "categoria")
 	private List<Livro> livros = new ArrayList();
 
@@ -91,4 +91,11 @@ public class Categoria implements Serializable  {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"id = " + id + ", " +
+				"nome = " + nome + ", " +
+				"descricao = " + descricao + ")";
+	}
 }

@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro implements Serializable  {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class Livro implements Serializable  {
 	private String titulo;
 	private String nome_autor;
 	private String texto;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
@@ -103,4 +103,13 @@ public class Livro implements Serializable  {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "(" +
+				"id = " + id + ", " +
+				"titulo = " + titulo + ", " +
+				"nome_autor = " + nome_autor + ", " +
+				"texto = " + texto + ", " +
+				"categoria = " + categoria + ")";
+	}
 }
